@@ -35,9 +35,11 @@ app.listen(3000, () => {
 */
 
 
-app.get("/books", (req, res) => {
+app.get("/books", async (req, res) => {
+  const datas = await books.findAll()
   res.json({
-    message : "Book fetched sucessfully"
+    message : "Book fetched sucessfully",
+    datas // datas : datas
   })
 })
 
