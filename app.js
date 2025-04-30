@@ -1,8 +1,9 @@
 
 const express = require("express")
 const app = express()
-
+const {books} = require("./database/connection") // const {books} = require("./database/connection.js") here .js is optional
 const db = require("./database/connection") // const db = require("./database/connection.js") here .js is optional
+app.use(express.json()) // to parse JSON data in request body
 /*
 
 // let app = require("express")()
@@ -44,7 +45,20 @@ app.get("/books", async (req, res) => {
 })
 
 
-app.post("/books", (req, res) => {
+app.post("/books", async (req, res) => {
+  const {bookName, bookPrice, bookAuthor, bookGenre} = req.body
+  await books.create({
+    bookName,// bookName : bookName,
+    bookPrice,// bookPrice : bookPrice,
+    bookAuthor,// bookAuthor : bookAuthor,
+    bookGenre// bookGenre : bookGenre
+  }).then(() => {
+    console.log("Book added successfully")
+  }).catch((err) => {
+    console.log(err)
+  })
+  // const bookName = req.body.bookName
+  // const bookPrice = req.body.bookPrice
   res.json({
     message : "Book added sucessfully"
   })
