@@ -78,8 +78,7 @@ app.patch("/books/:id", (req, res) => {
   })
 })
 
-postgresql://postgres.cxrnzuqmwnjclsijkcgd:full_st@ck123@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres
-
+process.env.connection_string
 
 app.listen(4000, function() {
   console.log("Server is running on port 4000")
