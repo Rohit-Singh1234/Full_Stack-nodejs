@@ -19,16 +19,6 @@ sequelize.authenticate()
     console.error("Unable to connect to the database:",err)
   })
 
-//   const info = {}
-//   info.name = "Rohit Singh"
-//   info.age = 22
-//   info.address = "Nepal"
-
-// const info = {
-//   name: "Rohit Singh",
-//   age: 22,
-//   address: "Nepal"
-// }
 
 const db = {}
 db.Sequelize = Sequelize
